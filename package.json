@@ -1,0 +1,27 @@
+{
+  "name": "dhaka-topi",
+  "version": "1.0.0",
+  "description": "\"# dhaka-topi\" \r \"# dhaka-topi\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ranjan484/dhaka-topi.git"
+  },
+  "author": "'Ranjan Rajthala'",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ranjan484/dhaka-topi/issues"
+  },
+  "homepage": "https://github.com/Ranjan484/dhaka-topi#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
