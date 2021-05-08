@@ -154,4 +154,5 @@ const products = [
     __v: 0,
   },
 ];
-module.exports = products;
+// module.exports = products;
+export default products;
