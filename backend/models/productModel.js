@@ -12,7 +12,7 @@ const productSchema = mongoose.Schema(
       default: 0,
     },
     user: {
-      type: mongoose.Schema.Type.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "User",
       //to link userId we ref User which is coming from UserSchema
