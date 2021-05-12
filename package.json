@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Ranjan484/dhaka-topi#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
     "express": "^4.17.1"
   }
 }
