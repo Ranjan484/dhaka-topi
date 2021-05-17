@@ -4,13 +4,13 @@ import Product from "../models/productModel.js";
 
 const router = express.Router();
 
-router.get("/", async (res, req) => {
+router.get("/", async (req, res) => {
   let products = await Product.find({});
 
   res.json(products);
 });
 
-router.get("/:id", async (res, req) => {
+router.get("/:id", async (req, res) => {
   let product = await Product.findById(req.params.id);
 
   if (product) {
