@@ -29,3 +29,11 @@ export const authUser = catchAsync(async (req, res) => {
     throw new Error("invaild email or password");
   }
 });
+
+// GET USER PROFILE
+// GET  /api/user/profile
+// private
+
+const getUserProfile = catchAsync(async (req, res) => {
+  const user = await User.findById();
+});
