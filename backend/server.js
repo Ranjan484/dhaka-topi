@@ -19,6 +19,8 @@ connectDB();
 
 const app = express();
 
+app.use(express.json());
+
 app.use(cors());
 
 app.get("/", (req, res, next) => {
@@ -26,7 +28,7 @@ app.get("/", (req, res, next) => {
 });
 
 app.use("/api/products", productRoutes);
-app.use("/api/user", userRoutes);
+app.use("/api/users", userRoutes);
 
 app.use(notFound);
 

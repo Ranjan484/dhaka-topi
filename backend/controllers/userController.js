@@ -1,0 +1,30 @@
+import User from "../models/userModel.js";
+import catchAsync from "express-async-handler";
+
+//Auth User and Get Token
+// POST /api/users/login
+// public
+
+export const authUser = catchAsync(async (req, res) => {
+  //pasre data from req body
+  const { email, password } = req.body;
+  // console.log(req.body);
+
+  //find user if it exist in database
+  const user = await User.findOne({ email });
+
+  if (user && (await user.matchPassword(password))) {
+    //user is vailed so log him in
+
+    return res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      toke: null,
+    });
+  } else {
+    res.status(401);
+    throw new Error("invaild email or password");
+  }
+});
