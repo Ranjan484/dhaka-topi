@@ -1,5 +1,6 @@
 import User from "../models/userModel.js";
 import catchAsync from "express-async-handler";
+import generateToken from "../utils/generateToken.js";
 
 //Auth User and Get Token
 // POST /api/users/login
@@ -21,7 +22,7 @@ export const authUser = catchAsync(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      toke: null,
+      toke: generateToken(user._id),
     });
   } else {
     res.status(401);
