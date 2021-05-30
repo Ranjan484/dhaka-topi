@@ -50,6 +50,36 @@ export const getUserProfile = catchAsync(async (req, res) => {
   }
 });
 
+//Update User Profile
+// PUT /api/user/profile
+// private
+
+export const updateUserProfile = catchAsync(async (req, res) => {
+  //Check if user exist on database
+
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+
+    if (req.body.password) {
+      user.passeword = req.body.password;
+    }
+    const updateduser = await user.save();
+    res.json({
+      _id: updatedUser.id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+      token: generateToken(updateUser._id),
+    });
+  } else {
+    res.status(404);
+    throw new Error("User No Longer Exist");
+  }
+});
+
 // Register a new user
 // POST  /api/users
 // public
